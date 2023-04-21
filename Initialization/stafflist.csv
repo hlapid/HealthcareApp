@@ -1,0 +1,8 @@
+staffID,firstName,lastName,role,username,password,email,phone,readPermission,writePermission,fullControl
+207637122,Moshe,Izkovitch,doctor,moshei,1234,moshei@hosp.gov.il,972-8-9341230,1,1,0
+477046263,David,Simantov,physiotherapist,davids,1234,davids@hosp.gov.il,972-8-9341231,1,1,0
+370342528,Sarit,Shushan,doctor,saritsh,1234,saritsh@hosp.gov.il,972-8-9341232,1,1,0
+476483314,Varda,Ben-Yehuda,nurse,vardab,1234,vardab@hosp.gov.il,972-8-9341233,1,1,0
+801360453,Dana,Rothchild,doctor,danar,1234,danar@hosp.gov.il,972-8-9341234,1,1,0
+882610433,Rony,Shahar,speech therapist,ronysh,1234,ronysh@hosp.gov.il,972-8-9341235,1,1,0
+521632854,Ayelet,Cooper,doctor,ayaletc,1234,ayaletc@hosp.gov.il,972-8-9341236,1,1,0

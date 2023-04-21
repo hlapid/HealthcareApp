@@ -1,0 +1,6 @@
+DateTime,PatientID,PatientFirstName,PatientLastName,Diagnosis,DrugSensitivity,Alergies,Antigen
+5/1/2020 15:43,12345,David,Smith,asdf,1,"asdf,asdf,asdg",Ant2
+5/5/2020 11:20,patient id,patient's first name,patient's last name,,1,"asdfg,asfg",Ant3
+5/5/2020 11:46,21345,asdf,asd,asg,1,asgf,Ant2
+5/5/2020 11:47,21345,David,Smith,asg,1,asgf,Ant2
+5/13/2020 14:29,3544,David ,Smith,zadfhsth,1,"zfdg,sdfg,SV",Ant2
