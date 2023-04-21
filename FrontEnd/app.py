@@ -10,7 +10,7 @@ class App(tk.Tk):
         self.resizable(True,True)
         #self.inputs = Insert2DB(self)
         #self.queries = DataQueries(self,"emr")
-        # layout on the root window
+        #  layout on the root window
         self.columnconfigure([1], weight=1, minsize=10)
         self.rowconfigure([1,2,3,4], weight=1, minsize=120)
         self.__create_frames()
