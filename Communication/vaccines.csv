@@ -1,0 +1,8 @@
+DateTime,PatientID,PatientFirstName,PatientLastName,Diagnosis,DrugSensitivity,Antigen
+2022-05-11 06:17:10,428644143,David,SMITH,,1,Ant1
+2022-05-11 06:30:38,428644143,David,SMITH,"er,ery",1,Ant1
+2022-05-18 07:29:51,428644143,David,SMITH,"asf,asg,asfg,asfg",1,Ant4
+2022-05-18 07:33:27,428644143,David,SMITH,"sf,sdfg,",1,Ant4
+2022-05-18 07:35:26,428644143,David,SMITH,,1,Ant4
+2022-05-18 07:38:43,428644143,David,SMITH,"asdf,asfg,asfg",1,Ant4
+2022-05-18 08:09:31,428644143,David,SMITH,"zadsfg,adfg,dasfh",1,Ant3
