@@ -24,12 +24,12 @@ class Insert2DB():
                 temp = True
                 break
         if not temp:
-            self.vaccines = Table("vaccines","vaccines.csv", pks = ["PatientID","DateTime"],
+            self.vaccines = Table("vaccines",None, pks = ["PatientID","DateTime"],
                              fks = [["PatientID"]],
                              ref_tables = ["patients"],
                              refs = [["patientID"]])
             print(self.vaccines.headers)
-            createNewTable(self.vaccines,dbname=self.dbName)
+            createNewTable(self.vaccines,headers=self.cols, dbname=self.dbName)
             print("vaccines table created")
             insertData2Table(self.vaccines)
             addPKs(self.vaccines)
@@ -56,8 +56,10 @@ class Insert2DB():
                 self.df.loc[self.index,col] = temp
         else:
             self.views.frame1.clear_ID_error()
+
         if self.get_val(w) or self.get_val(w)==0:
             self.df.loc[self.index,col] = self.get_val(w)
+            print(self.df.loc[self.index,col])
         else:
             self.df.loc[self.index, col] = None
         return
@@ -92,10 +94,11 @@ class Insert2DB():
         self.cursor.execute(command)
         self.con.commit()
         return
+
     def controlButton(self):
         # insert dataframe to sql table
         self.insertData2Table()
-        fname = 'C://Hadas//courses//2022//healthcare information systems//vaccines.csv'
+        fname = 'C://Hadas//courses//2023//Healthcare Informatics//app//FrontEnd//vaccines.csv'
         try:
             with open(fname,'r') as f:
                 f.close()

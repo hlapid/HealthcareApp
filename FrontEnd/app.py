@@ -8,8 +8,8 @@ class App(tk.Tk):
         self.title('Apointment Manager')
         self.geometry('1200x800')
         self.resizable(True,True)
-        #self.inputs = Insert2DB(self)
-        #self.queries = DataQueries(self,"emr")
+        self.inputs = Insert2DB(self)
+        self.queries = DataQueries(self,"emr")
         #  layout on the root window
         self.columnconfigure([1], weight=1, minsize=10)
         self.rowconfigure([1,2,3,4], weight=1, minsize=120)
