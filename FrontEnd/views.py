@@ -154,7 +154,7 @@ class Frame3(ttk.Frame):
         
         self.loadDataButton = ttk.Button(self,style="TButton",
                                          text="load admissions", 
-                                         command=lambda : self.showTable(app))
+                                         command=lambda : app.queries.queryPatientDataByDate(str(self.beginDate.get_date()),str(self.endDate.get_date())))
         self.loadDataButton.grid(column=4,row=1, padx=1, pady=1)
         
         self.resetFrameButton = ttk.Button(self,style="TButton",
@@ -163,7 +163,6 @@ class Frame3(ttk.Frame):
         self.resetFrameButton.grid(column=4,row=2, padx=1, pady=1)
 
     def showTable(self,app):
-        app.queries.queryPatientDataByDate(str(self.beginDate.get_date()),str(self.endDate.get_date()))
         # app.queries.df_PatientAdmissions
         self.colwidths = [15,10,10,15,15,20]
         try:
@@ -184,7 +183,7 @@ class Frame3(ttk.Frame):
                   
                     self.e.grid(row=i+4, column=j)
         except BaseException as err:
-            print(f"Unexpected {err=}, {type(err)=}")
+            print(sys.exc_info()[0], err)
             print("no data to show")
     def deleteTable(self,app):
         wig = self.grid_slaves()

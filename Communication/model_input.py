@@ -1,5 +1,6 @@
 from Initialization.serverInitiation import *
 import pandas as pd
+import numpy as np
 import tkinter as tk
 from time import gmtime, strftime
 
@@ -73,29 +74,30 @@ class Insert2DB():
 
     def insertData2Table(self):
         self.refreshDBvals()
-        print(self.df)
+        # print(self.df)
         # add df as a new line to db
-        command = f"INSERT INTO {self.tableName} ("
-        for c in self.cols[:-1]:
-            command+=f"{c}, "
-        command+=f"{self.cols[-1]}) VALUES ("
-        for v in self.df.iloc[self.index,:-1]:
-            if v==None:
-                command += f"NULL, "
+        if np.all(self.df.isna()):
+            command = f"INSERT INTO {self.tableName} ("
+            for c in self.cols[:-1]:
+                command+=f"{c}, "
+            command+=f"{self.cols[-1]}) VALUES ("
+            for v in self.df.iloc[self.index,:-1]:
+                if v==None:
+                    command += f"NULL, "
+                else:
+                    command+=f"'{v}', "
+            if self.df.iloc[self.index,-1]==None:
+                command += f"'NULL')"
             else:
-                command+=f"'{v}', "
-        if self.df.iloc[self.index,-1]==None:
-            command += f"'NULL')"
-        else:
-            command+=f"'{self.df.iloc[self.index,-1]}')"
-        print(command)
-        self.cursor.execute(command)
-        self.con.commit()
+                command+=f"'{self.df.iloc[self.index,-1]}')"
+            print(command)
+            self.cursor.execute(command)
+            self.con.commit()
         return
     def controlButton(self):
         # insert dataframe to sql table
         self.insertData2Table()
-        fname = 'C://Hadas//courses//2022//healthcare information systems//vaccines.csv'
+        fname = 'C://Hadas//courses//2023//Healthcare Informatics//app//Communication//vaccines.csv'
         try:
             with open(fname,'r') as f:
                 f.close()

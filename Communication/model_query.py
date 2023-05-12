@@ -8,12 +8,12 @@ from Initialization.serverInitiation import *
 import pandas as pd
 
 class DataQueries:
-    def __init__(self,dbName):
+    def __init__(self,app,dbName):
         # self.cursor = connect2server()
         self.cursor, self.con = connect2serverDB(database=dbName)
         self.df_patientData = pd.DataFrame()
         self.df_PatientAdmissions = pd.DataFrame()
-
+        self.views = app
     # A)
     # A query of all patients's data for a specific staff user
     # select David Simantov's patients using 'where' and 'inner join'
@@ -50,6 +50,7 @@ class DataQueries:
         res2 = self.cursor.fetchall()
         self.df_PatientAdmissions = pd.DataFrame(res2,columns = ["admission date","patient ID","First Name","Last Name","phone","address"])
         self.df_PatientAdmissions.to_csv('SelectedAdmissionDates.csv', sep=',',index=False)
+        self.views.frame3.showTable(self.views)
         return self.df_PatientAdmissions
 def main():
     q = DataQueries("emr")
