@@ -11,21 +11,25 @@ class App(tk.Tk):
         self.inputs = Insert2DB(self)
         self.queries = DataQueries(self,"emr")
         # layout on the root window
-        self.columnconfigure([1], weight=1, minsize=10)
-        self.rowconfigure([1,2,3,4], weight=1, minsize=120)
-        self.__create_frames()
+        self.Change_Frame(0)
 
-    def __create_frames(self):
-        # create the top frame
-        self.frame1 = Frame1(self)
-        self.frame1.grid(column=1, row=1, padx=5, pady=1)
-        self.frame2= Frame2(self)
-        self.frame2.grid(column=1, row=2, padx=5, pady=1)
-        self.frame3= Frame3(self)
-        self.frame3.grid(column=1, row=3, padx=5, pady=1)
-        self.frame4= Frame4(self)
-        self.frame4.grid(column=1, row=4, padx=5, pady=1)
-        return
+    def Change_Frame(self, num):
+        wig = self.grid_slaves()
+        for l in wig:
+            l.destroy()
+        if num==0:
+            self.frame0 = Frame0(self)
+            self.frame0.grid(row=0,column = 0,padx=500,pady=250)
+        elif num==1:
+            self.frame1 = Frame1(self)
+            self.frame1.grid(column=1, row=1, padx=200, pady=100)
+            self.frame2= Frame2(self)
+            self.frame2.grid(column=1, row=2, padx=200, pady=100)
+            self.frame4= Frame4(self)
+            self.frame4.grid(column=1, row=3, padx=200, pady=100)
+        elif num==2:
+            self.frame3= Frame3(self)
+            self.frame3.grid(row=0,column = 0,padx=100,pady=250)
 
 if __name__ == "__main__":
     app = App()

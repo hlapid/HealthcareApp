@@ -109,7 +109,7 @@ class Insert2DB():
         # update line index
         # self.index+=1
         print(self.df)
-        self.views.destroy()
+        self.views.Change_Frame(0)
         return True
 
 

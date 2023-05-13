@@ -122,7 +122,7 @@ class Frame3(ttk.Frame):
         self.__create_widgets(app)
         return         
     def __create_widgets(self,app):
-        self.rowconfigure([8], weight=1, minsize=10)
+        self.rowconfigure([9], weight=1, minsize=10)
         self.columnconfigure([6], weight=1, minsize=20)
         self.labelBeginDate = tk.Label(master=self,
                           font=('Times New Roman',14),
@@ -161,6 +161,13 @@ class Frame3(ttk.Frame):
                                          text="reset frame", 
                                          command=lambda : self.deleteTable(app))
         self.resetFrameButton.grid(column=4,row=2, padx=1, pady=1)
+        self.button = tk.Button(master=self,
+                                text="Exit",
+                                bg="light green",
+                                fg="black",
+                                font=('Times New Roman',12),
+                                command = lambda : app.Change_Frame(0))
+        self.button.grid(column=3,row=9, padx=1, pady=1)
 
     def showTable(self,app):
         self.colwidths = [15,10,10,15,15,20]
@@ -203,4 +210,24 @@ class Frame4(ttk.Frame):
                    font=('Times New Roman',12),
                    command = lambda : app.inputs.controlButton())
         self.button.pack(side=tk.BOTTOM)
+        return
+class Frame0(ttk.Frame):
+    def __init__(self,app):
+        ttk.Frame.__init__(self,master=app,relief=tk.RAISED,borderwidth=10,width=240,height=80)
+        self.createButtons(app)
+    def createButtons(self,app):
+        self.buttonInput = tk.Button(master=self,
+                    text="Create Patient",
+                    bg="light green",
+                    fg="black",
+                    font=('Times New Roman',12),
+                    command = lambda : app.Change_Frame(1))
+        self.buttonInput.pack(side=tk.TOP)
+        self.buttonQueries = tk.Button(master=self,
+                    text="Query Data",
+                    bg="light green",
+                    fg="black",
+                    font=('Times New Roman',12),
+                    command = lambda : app.Change_Frame(2))
+        self.buttonQueries.pack(side=tk.TOP)
         return
