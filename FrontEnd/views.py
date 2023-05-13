@@ -163,7 +163,6 @@ class Frame3(ttk.Frame):
         self.resetFrameButton.grid(column=4,row=2, padx=1, pady=1)
 
     def showTable(self,app):
-        # app.queries.df_PatientAdmissions
         self.colwidths = [15,10,10,15,15,20]
         try:
             for j in range(len(self.colwidths)):
